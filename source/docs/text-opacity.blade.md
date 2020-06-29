@@ -31,6 +31,28 @@ Control the opacity of an element's text color using the `.text-opacity-{amount}
 @endslot
 @endcomponent
 
+Note that because these utilities are implemented using CSS custom properties, a `.text-{color}` utility must be present on the same element for them to work.
+
+@component('_partials.tip-bad')
+Don't try to use text opacity utilities on an inherited text color
+@endcomponent
+
+```html
+<div class="text-black">
+  <div class="text-opacity-50">...</div>
+</div>
+```
+
+@component('_partials.tip-good')
+Do make sure to add a text color utility to the same element explicitly
+@endcomponent
+
+```html
+<div class="text-black">
+  <div class="text-black text-opacity-50">...</div>
+</div>
+```
+
 ## Responsive
 
 To control an element's text color opacity at a specific breakpoint, add a `{screen}:` prefix to any existing text color opacity utility. For example, use `md:text-opacity-50` to apply the `text-opacity-50` utility at only medium screen sizes and above.
